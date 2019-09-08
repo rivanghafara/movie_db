@@ -1,28 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
 import MovieItem from '../movie-item/movie-item'
 
-const GetMovie = () => {
+const PopularMovie = () => {
     const [movies, setMovies] = useState([]);
-    const useStyles = makeStyles({
-        card: {
-            maxWidth: 345,
-        },
-        media: {
-            height: 500,
-        },
-    });
-    const classes = useStyles();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -39,50 +21,13 @@ const GetMovie = () => {
     }, [])
 
     return (
-        movies.map(({item, ...otherMovieProps}) => (
-            <MovieItem key={item.id} {...otherMovieProps} />
+        
+        movies
+            .map((item) => (
+            <MovieItem key={item.id} id={item.id} title={item.title} posterImg={item.poster_path} overview={item.overview} />
+            
         ))
     )
-
-    // return (
-    //     movies.map((item) => (
-    //       <li key={item.id}>
-    //         {item.original_title}
-    //         <p>{item.overview}</p>
-    //       </li>
-    //     ))
-    // )
-
-    // return (
-    //     movies.map((item) => (
-    //         <Card className={classes.card} key={item.id}>
-    //             <CardActionArea>
-    //                 <CardMedia
-    //                     className={classes.media}
-    //                     image={"https://image.tmdb.org/t/p/w500/" + item.poster_path}
-    //                     title={item.original_title}
-    //                 />
-    //                 <CardContent>
-    //                     <Typography gutterBottom variant="h5" component="h2">
-    //                         {item.original_title}
-    //                     </Typography>
-    //                     <Typography variant="body2" color="textSecondary" component="p" noWrap="false">
-    //                         {item.overview}
-    //                     </Typography>
-    //                 </CardContent>
-    //             </CardActionArea>
-    //             <CardActions>
-    //                 <Button size="small" color="primary">
-    //                     Share
-    //                      </Button>
-    //                 <Button size="small" color="primary">
-    //                     Learn More
-    //                     </Button>
-    //             </CardActions>
-    //         </Card>
-
-    //     ))
-    // )
 }
 
-export default GetMovie
+export default PopularMovie

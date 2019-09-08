@@ -25,15 +25,16 @@ const MovieItem = ({id, title, posterImg, overview}) => {
         <Card className={classes.card}>
             <CardActionArea>
                 <CardMedia
+                    key = {id}
                     className={classes.media}
-                    image={"https://image.tmdb.org/t/p/w500/" + posterImg}
+                    image={("https://image.tmdb.org/t/p/w500/" + posterImg)}
                     title={title}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {title}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p" noWrap="false">
+                    <Typography variant="body2" color="textSecondary" component="p" noWrap>
                         {overview}
                     </Typography>
                 </CardContent>
