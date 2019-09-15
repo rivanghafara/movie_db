@@ -7,6 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   grid: {
     justifyContent: 'center'
-  }
+  },
 }));
 
 
@@ -32,6 +33,18 @@ function App() {
       <CssBaseline />
       <div className={classes.root} >
         <Box className={classes.cardGrid}>
+          <Container>
+            <form align='center' xs={12}>
+              <TextField
+                id="standard-name"
+                label="Search Movie"
+              // className={classes.textField}
+              // value={values.name}
+              // onChange={handleChange('name')}
+              // margin="normal"
+              />
+            </form>
+          </Container>
           <Container >
             <Typography variant="h4"> Popular</Typography>
             <Grid container className={classes.grid}>
