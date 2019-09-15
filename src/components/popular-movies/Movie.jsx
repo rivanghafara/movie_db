@@ -22,8 +22,8 @@ const PopularMovie = () => {
 
         movies
             .map((item) => (
-                <GridList>
-                    <MovieItem key={item.id} id={item.id} title={item.title} posterImg={item.poster_path} overview={item.overview} />
+                <GridList key={item.id}>
+                    <MovieItem  id={item.id} title={item.title} posterImg={item.poster_path} overview={item.overview} />
                 </GridList>
             ))
     )
