@@ -6,7 +6,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
 
 import Movie from '../../components/popular-movies/Movie'
 import NavigationPanel from '../../components/nav/Navigation'
@@ -36,20 +35,8 @@ const HomePage = () => {
             <div className={classes.root} >
                 <Box className={classes.cardGrid}>
                     <ExpansionPanel />
-                    <Container>
-                        <form align='center' xs={12}>
-                            <TextField
-                                id="standard-name"
-                                label="Search Movie"
-                            // className={classes.textField}
-                            // value={values.name}
-                            // onChange={handleChange('name')}
-                            // margin="normal"
-                            />
-                        </form>
-                    </Container>
                     <Container >
-                        <Typography variant="h4"> Popular</Typography>
+                        <Typography variant="h4" style={{marginTop:'2%'}}> Popular</Typography>
                         <Grid container className={classes.grid}>
                             <Movie />
                         </Grid>

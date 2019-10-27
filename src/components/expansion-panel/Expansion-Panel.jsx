@@ -47,12 +47,10 @@ export default function SimpleExpansionPanel() {
         arrGenres.splice(index, 1);
       }
     } else {
+
       arrGenres.push(event.target.value)
-
     }
-
     console.log(arrGenres);
-
   }
 
   return (
@@ -63,7 +61,7 @@ export default function SimpleExpansionPanel() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Expansion Panel 1</Typography>
+          <Typography className={classes.heading}>Genres</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <FormGroup row>
