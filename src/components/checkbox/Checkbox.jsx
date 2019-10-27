@@ -7,6 +7,7 @@ import axios from 'axios';
 // ini url untuk search by genres
 // https://api.themoviedb.org/3/discover/movie?api_key=850c683da4d46367b8a14773ea9219a0&language=en-US&sort_by=popularity.desc&with_genres=28
 
+
 export default function CheckboxLabels() {
     const [genres, setGenres] = useState([])
     var arrGenres = []
@@ -32,11 +33,9 @@ export default function CheckboxLabels() {
             }
         } else {
             arrGenres.push(event.target.value)
-
         }
 
         console.log(arrGenres);
-
     }
 
     return (

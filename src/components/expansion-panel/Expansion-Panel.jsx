@@ -29,7 +29,7 @@ export default function SimpleExpansionPanel() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>Expansion Panel 1</Typography>
+          <Typography className={classes.heading}>Pick Genres</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Checkbox />
