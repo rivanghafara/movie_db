@@ -7,8 +7,6 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import CheckboxGroup from '../checkbox/CheckboxGroup'
-import CustomCheckbox from '../checkbox/Checkbox'
 import Checkbox from '@material-ui/core/Checkbox';
 
 import axios from 'axios'
