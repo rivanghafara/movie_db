@@ -3,9 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CheckboxGroup from '../checkbox/CheckboxGroup'
+import CustomCheckbox from '../checkbox/Checkbox'
+import Checkbox from '@material-ui/core/Checkbox';
 
 import axios from 'axios'
 
@@ -64,20 +68,25 @@ export default function SimpleExpansionPanel() {
           <Typography className={classes.heading}>Expansion Panel 1</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-
-
-          {console.log(genres)}
-          <CheckboxGroup onClick={handleChange} key='1' value='hai'/>
-          
-          {/* {genres.map((item) =>
-            <CheckboxGroup onClick={handleChange} key={item.id} {...item} />
-          )} */}
-          {/* <FormGroup row>
-            {console.log(genres)}
+          <FormGroup row>
             {genres.map((item) =>
-              <Checkbox key={item.id} label={item.name}/>
+              <FormControlLabel
+                key={item.id}
+                label={item.name}
+                control={
+                  
+                  <Checkbox
+                    // checked={status.isChecked}
+                    onChange={handleChange}
+                    value={item.id}
+                    color="primary"
+                  // onClick={handleChange}
+                  />
+                }
+                
+              />
             )}
-          </FormGroup> */}
+          </FormGroup>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
