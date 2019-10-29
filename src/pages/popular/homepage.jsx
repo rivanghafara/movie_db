@@ -34,8 +34,8 @@ const HomePage = () => {
             <NavigationPanel />
             <div className={classes.root} >
                 <Box className={classes.cardGrid}>
-                    <ExpansionPanel />
                     <Container >
+                    <ExpansionPanel />
                         <Typography variant="h4" style={{marginTop:'2%'}}> Popular</Typography>
                         <Grid container className={classes.grid}>
                             <Movie />

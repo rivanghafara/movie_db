@@ -7,8 +7,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-
 import axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
@@ -19,6 +19,13 @@ const useStyles = makeStyles(theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
   },
+  checkboxGroup: {
+    width: '140px'
+  },
+  button: {
+    // up right bottom left
+    margin: '10px 10px 24px 24px'
+  }
 }));
 
 
@@ -50,7 +57,14 @@ export default function SimpleExpansionPanel() {
 
       arrGenres.push(event.target.value)
     }
-    console.log(arrGenres);
+  }
+
+  const submitGenres = event => {
+    // const result = axios.get('https://api.themoviedb.org/3/discover/movie?api_key=850c683da4d46367b8a14773ea9219a0&language=en-US&sort_by=popularity.desc&with_genres='+ arrGenres[0])
+    // console.log(result);
+    
+    // console.log(arrGenres[0]);
+    
   }
 
   return (
@@ -67,10 +81,11 @@ export default function SimpleExpansionPanel() {
           <FormGroup row>
             {genres.map((item) =>
               <FormControlLabel
+                className={classes.checkboxGroup}
                 key={item.id}
                 label={item.name}
                 control={
-                  
+
                   <Checkbox
                     // checked={status.isChecked}
                     onChange={handleChange}
@@ -79,11 +94,14 @@ export default function SimpleExpansionPanel() {
                   // onClick={handleChange}
                   />
                 }
-                
+
               />
             )}
           </FormGroup>
         </ExpansionPanelDetails>
+        <Button variant="contained" color="primary" className={classes.button} onClick={submitGenres}>
+          Primary
+      </Button>
       </ExpansionPanel>
     </div>
   );
