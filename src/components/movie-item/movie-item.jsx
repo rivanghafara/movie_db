@@ -37,7 +37,8 @@ const MovieItem = ({ id, title, posterImg, overview }) => {
     const classes = useStyles();
 
     const handleClick = () => (
-        console.log(id)
+        console.log(`go to ${id} page`)
+        
         
     )
 

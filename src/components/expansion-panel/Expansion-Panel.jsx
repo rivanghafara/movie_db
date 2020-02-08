@@ -100,7 +100,7 @@ export default function SimpleExpansionPanel() {
           </FormGroup>
         </ExpansionPanelDetails>
         <Button variant="contained" color="primary" className={classes.button} onClick={submitGenres}>
-          Primary
+          Generate
       </Button>
       </ExpansionPanel>
     </div>
