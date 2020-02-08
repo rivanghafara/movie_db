@@ -1,18 +1,20 @@
 import React from 'react';
+import Main from './components/Main'
 import { Switch, Route } from 'react-router-dom'
-import HomePage from './pages/popular/homepage'
+import Homepage from './pages/homepage'
+import Example from './pages/example';
+import Movie from './pages/movie'
 
-import './App.css';
+
 function App() {
-
-  
   return (
-    <div>
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-      </Switch>
-    </div>    
-  )
+
+    <Switch>
+      <Route exact path='/' component={Homepage} />
+      <Route exact path='/example' component={Example} />
+      <Route exact path='/:id'component={Movie} />
+    </Switch>
+  );
 }
 
 export default App;
