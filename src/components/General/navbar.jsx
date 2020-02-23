@@ -20,7 +20,7 @@ function Navbar() {
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
             <Link to="/example" className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4" >Movies</Link>
-            <Link to="/example" className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4" >TV Series</Link>
+            <Link to="/tv" className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4" >TV Series</Link>
             <Link to="/example" className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4" >My List</Link>
           </div>
           <div>

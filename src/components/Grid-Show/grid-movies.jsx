@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../styles/tailwind.css'
-import { Link } from "react-router-dom";
+import ShowGrid from '../Show-Details/show-grid'
 
 const PopularMovie = () => {
     const [movies, setMovies] = useState([]);
@@ -22,11 +22,7 @@ const PopularMovie = () => {
     return (
         movies
             .map((item) => (
-                <Link to={(`/${item.id}`)} key={item.id}>
-                    <div className="max-w-lg rounded overflow-hidden shadow-lg" key={item.id}>
-                        <img className="transition duration-300 ease-in-out hover:opacity-50 transform hover:-translate-y-1 hover:scale-110" src={(`https://image.tmdb.org/t/p/w500${item.poster_path}`)} alt={item.title}></img>
-                    </div>
-                </Link>
+                <ShowGrid {...item} />
             ))
     )
 }
