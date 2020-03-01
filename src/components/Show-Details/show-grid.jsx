@@ -3,7 +3,9 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 
 function ShowGrid(props) {
-    let {url } = useRouteMatch();
+    let { url } = useRouteMatch();
+    console.log(url);
+    
     return (
         <Link to={(`${url}/${props.id}`)} key={props.id}>
             <div className="max-w-lg rounded overflow-hidden shadow-lg" key={props.id}>

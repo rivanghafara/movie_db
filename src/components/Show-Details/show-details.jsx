@@ -2,13 +2,8 @@ import React from 'react';
 import '../../styles/tailwind.css'
 import MovieTag from './show-tags'
 import MovieScore from '../../utils/movieScores'
-import { useParams, useRouteMatch } from 'react-router-dom';
-
-
 
 const MovieByID = (props) => {
-    let {id } = useParams()
-    let {url, path } = useRouteMatch()
     return (
         <div>
             <div className="container8 p-8">
@@ -29,7 +24,7 @@ const MovieByID = (props) => {
                                 <p className="pt-4 font-bold text-sm text-gray-400 text-transform: uppercase">{props.status} / {props.year_release} / {props.runtime} Min.</p>
                                 <MovieScore score={props.vote_average} />
                                 <div className="pt-4">
-                                    <button class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                                         Watch Now
                                     </button>
                                     <span className="text-black font-bold py-2 px-4 rounded">+ Wishlist</span>
