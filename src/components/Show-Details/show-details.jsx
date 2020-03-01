@@ -2,8 +2,13 @@ import React from 'react';
 import '../../styles/tailwind.css'
 import MovieTag from './show-tags'
 import MovieScore from '../../utils/movieScores'
+import { useParams, useRouteMatch } from 'react-router-dom';
+
+
 
 const MovieByID = (props) => {
+    let {id } = useParams()
+    let {url, path } = useRouteMatch()
     return (
         <div>
             <div className="container8 p-8">

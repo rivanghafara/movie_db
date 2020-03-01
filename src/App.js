@@ -12,9 +12,11 @@ function App() {
   return (
     <Switch>
       <Route exact path='/' component={Homepage} />
+      <Route exact path='/movie' component={Homepage} />
+      <Route exact path='/movie/:id' component={MovieDetails} />
       <Route exact path='/example' component={Example} />
       <Route exact path='/tv'component={TvPage} />
-      <Route exact path='/:id'component={TvDetails} />
+      <Route exact path='/tv/:id'component={TvDetails} />
     </Switch>
   );
 }
