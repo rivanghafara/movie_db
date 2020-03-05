@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../../styles/tailwind.css'
 
 function MovieTag(props) {
-    console.log(props)
-    
     const [movieGenres, setMovieGenres] = useState([])
     useEffect(() => {
         setMovieGenres(Object.values(props))
@@ -16,7 +14,6 @@ function MovieTag(props) {
                     <a href="http://" className="">
                         {item.name}
                     </a>
-                    
                 </div>
             </div >
         ))

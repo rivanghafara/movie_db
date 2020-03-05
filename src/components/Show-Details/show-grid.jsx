@@ -4,7 +4,6 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 function ShowGrid(props) {
     let { url } = useRouteMatch();
-    console.log(url);
     
     return (
         <Link to={(`${url}/${props.id}`)} key={props.id}>

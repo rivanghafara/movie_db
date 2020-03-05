@@ -22,7 +22,7 @@ const PopularMovie = () => {
     return (
         movies
             .map((item) => (
-                <ShowGrid {...item} />
+                <ShowGrid {...item} key={item.id}/>
             ))
     )
 }
