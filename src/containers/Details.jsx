@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from 'react'
-// import { getMovieById } from '../actions/index'
-import axios from 'axios'
+import { getMovieById } from '../actions/index'
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams
-} from "react-router-dom";
+import { GenresList } from '../components/Genres'
 
-async function DetailsPage() {
-    const [movie, setMovie] = useState([])
+import { useParams } from "react-router-dom";
+
+function DetailsPage() {
+    const [movies, setMovie] = useState([])
+    const [genres, setGenres] = useState([])
+    const [casts, setCasts] = useState([])
     let { id } = useParams()
-    
+
     useEffect(() => {
-        // getMovieById(setMovie, id)
-        const getMovieById = async () => {
-            try {
-                const movie = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=850c683da4d46367b8a14773ea9219a0&language=en-US`)
-                setMovie(movie.data)
-            } catch (error) {
-                return error
-            }
-        }
-        getMovieById()
+        getMovieById(setMovie, id)
     }, [id])
-    
-    console.log('hahaha =', movie);
+
+    useEffect(() => {
+        setGenres(movies.genres)
+        setCasts(movies.credits)
+    }, [movies])
+
+    const release_date = new Date(movies.release_date)
+    if (genres === undefined) return ''
+    if (casts.cast === undefined) return ''
+    if (release_date === isNaN) return ''
+
     return (
         <>
-            <h1>{movie.title}</h1>
-            <h2>{movie.overview}</h2>
-            <h3>{movie.vote_average}</h3>
-            {/* <ul>
-                {movie.genres.map(genre => (
-                    <li>{genre}</li>
-                ))}
-            </ul> */}
+            <h1>{movies.title} ({release_date.getFullYear()})</h1>
+            <h2>{movies.overview}</h2>
+            <h2>{movies.runtime} min.</h2>
+            <h2>{movies.vote_average}</h2>
+            {genres.map(genre => (
+                <GenresList key={genre.id} {...genre} />
+            ))}
+            <img src={(`https://image.tmdb.org/t/p/w400${movies.poster_path}`)} alt={(`${movies.title} poster`)} />
+            {casts.cast.map(cast => (
+                <h2 key={cast.id}>{cast.name} as <i>{cast.character}</i></h2>
+            ))}
         </>
-
     )
 }
 export default DetailsPage
+

@@ -14,8 +14,26 @@ export const getPopularMovie = async (param) => {
 
 export const getMovieById = async (param, movie_id) => {
     try {
-        const movie = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=850c683da4d46367b8a14773ea9219a0&language=en-US`)
-        param(movie.data)
+        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=850c683da4d46367b8a14773ea9219a0&append_to_response=credits&language=en-US`)
+        param(data)
+    } catch (error) {
+        return error
+    }
+}
+
+export const getGenres = async (param) => {
+    try {
+        const { data } = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=850c683da4d46367b8a14773ea9219a0&language=en-US')
+        param(data.genres)
+    } catch (error) {
+        return error
+    }
+}
+
+export const getMoviesByGenre = async (param, genre_id) => {
+    try {
+        const { data } = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=850c683da4d46367b8a14773ea9219a0&with_genres=${genre_id}&page=1`)
+        param(data.results)
     } catch (error) {
         return error
     }
