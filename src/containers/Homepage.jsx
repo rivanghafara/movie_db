@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,  } from 'react'
 import { getPopularMovie, getGenres, getMoviesByGenre } from '../actions/index'
 
 import Moviebox from '../components/Moviebox'
-import {GenresList } from '../components/Genres'
+import { MemoGenres } from '../components/Genres'
+
+
 import { useParams } from 'react-router-dom'
 
 function Homepage() {
@@ -26,16 +28,16 @@ function Homepage() {
     return (
         <>
             {
-                movies.map(movie => (
-                    < Moviebox {...movie} key={movie.id} />
+                genres.map(genre => (
+                    // <GenresList {...genre} key={genre.id} isSelected={false} />
+                    <MemoGenres {...genre} key={genre.id} />
                 ))
             }
             {
-                genres.map(genre => (
-                    <GenresList {...genre} key={genre.id} />
+                movies.map(movie => (
+                    < Moviebox {...movie} key={movie.id}/>
                 ))
             }
-
         </>
     )
 }
