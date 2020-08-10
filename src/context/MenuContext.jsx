@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useReducer, createContext } from 'react'
-import axios from 'axios'
+import React, { useEffect, useReducer, createContext } from 'react'
 import { reducer } from '../reducer/MenuReducer'
 import { fetchingGenre } from '../actions/fetching'
 

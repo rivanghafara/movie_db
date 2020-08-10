@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 
 export const GenreList = (props) => {
     props = Object.values(props)
@@ -7,7 +7,9 @@ export const GenreList = (props) => {
     return (
         <>
             {props.map(genre => (
-                <h1 key={genre.id}>{genre.name}</h1>
+                <Link to={(`/genres/${genre.id}`)}>
+                    <h1 key={genre.id}>{genre.name}</h1>
+                </Link>
             ))}
         </>
     )
