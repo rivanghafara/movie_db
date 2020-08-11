@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Homepage from './pages/Homepage/Homepage'
-import Details from './pages/Homepage/Details'
+import Homepage from './pages/Homepage'
+import Details from './pages/Details'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route exact path="/details" component={Details} />
+          <Route exact path="/shows/:id" component={Details} />
           <Route exact path="/genres/:id" component={Homepage} />
         </Switch>
       </Router>
