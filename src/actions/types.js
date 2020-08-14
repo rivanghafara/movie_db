@@ -1,0 +1,1 @@
+export const FETCHING_MOVIE = 'FETCHING_MOVIE'

@@ -1,17 +1,14 @@
 import axios from 'axios'
 import tmdb from '../apis/tmdb'
 
-export const fetchingGenre = async (initialState, dispatch) => {
+export const fetchingGenre = async () => {
     try {
         const results = await axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=850c683da4d46367b8a14773ea9219a0&language=en-US')
-        let add_value = results.data
-        add_value.genres.unshift(initialState[0]);
-        dispatch(add_value.genres)
+        return results
     } catch (error) {
         console.log(error)
     }
 }
-
 export const fetchingPopularMovies = async (setState) => {
     try {
         const results = await tmdb.get('movie/popular?api_key=850c683da4d46367b8a14773ea9219a0&language=en-US&region=US&page=1')
