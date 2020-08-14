@@ -1,24 +1,20 @@
-import React, { useEffect, useReducer, createContext } from 'react'
-import { reducer } from '../reducer/MenuReducer'
-import { fetchingGenre } from '../actions/fetching'
+import React, { useReducer, createContext } from 'react'
+import reducer from '../reducer/MenuReducer'
 
 
 export const MenuContext = createContext()
 
 
-export const initialState = [{
-    id: 0,
-    name: 'Popular'
-}]
+export const initialState = {
+    genresList: {
+        genres: undefined
+    }
+}
 
 function StoreProvider({ children }) {
-    const [state, dispatch] = useReducer(reducer, initialState)
-
-    useEffect(() => {
-        fetchingGenre(initialState, dispatch)
-    }, [])
+    const value = useReducer(reducer, initialState)
     return (
-        <MenuContext.Provider value={state}>
+        <MenuContext.Provider value={value}>
             {children}
         </MenuContext.Provider>
     )
